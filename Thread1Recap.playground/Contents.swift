@@ -12,6 +12,10 @@ struct Dog {
     var heightInCentimetres: Double {
           return heightInMetres * 100
       }
+    
+    var lengthToHeightRatio: Double {
+            return lengthInCentimetres / heightInMetres
+        }
 }
 
 var dogAtLeft = Dog(
@@ -32,6 +36,40 @@ var dogInMiddle = Dog(
 
 dogAtLeft.heightInCentimetres
 dogInMiddle.heightInCentimetres
+dogAtLeft.lengthToHeightRatio
+dogInMiddle.lengthToHeightRatio
+
+
+// New structure for Book
+struct Book {
+    // MARK: Stored properties
+    let title: String
+    let author: String
+    let pageCount: Int
+    let dimensions: (width: Double, height: Double, thickness: Double)
+    
+    // MARK: Computed property
+    var shelfSpaceRequired: Double {
+        return dimensions.width * dimensions.height * dimensions.thickness
+    }
+}
+
+var book1 = Book(
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    pageCount: 224,
+    dimensions: (width: 13.5, height: 20.3, thickness: 2.2)
+)
+
+var book2 = Book(
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    pageCount: 281,
+    dimensions: (width: 15.2, height: 22.9, thickness: 2.5)
+)
+
+book1.shelfSpaceRequired
+book2.shelfSpaceRequired
 
 
 
